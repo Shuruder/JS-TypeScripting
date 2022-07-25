@@ -1,9 +1,16 @@
-// Generic Types
-
-function adicionaApendiceALista<NaoSei>(array: any[], valor: NaoSei ) { // por padrão é colocado a letra T no lugar do NaoSei
-    return array.map(() => valor);
+interface IUsuario {
+    id: string;
+    email: string;
 }
 
-adicionaApendiceALista([1, 2, 3], 1); // COmo tipar esses dados? olhe na função
+interface IAdmin extends IUsuario {
+    cargo: 'gerente' | 'coordenador' | 'supervisor';
+}
 
-// Então basicamente quando você não sabe o que vai receber você pode criar um receptor generico
+function redirecione(usurario: IUsuario | IAdmin) {
+    //if( usurario.cargo) // vai dar erro porque não há provas dque é um admin
+    if ('cargo' in usurario) { // usamos o in
+        // redirecionar para a area de administração
+    }
+    // redireciona para area do usuário
+}
