@@ -1,0 +1,2 @@
+TypeScript é uma extensão do JS
+Ele vai acelerar seus processos de escrever muito código
