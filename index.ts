@@ -1,53 +1,10 @@
-console.log('TypeScript');
+// tag input
 
-function soma(a: number, b: number) {
-    return a + b;
-}
+// const input: HTMLInputElement = document.getElementById('input'); // não vai funcionar pois o elemento ainda não está definido
+const input = document.getElementById('input') as HTMLInputElement; // se fosse uma div era DivElement etc
 
-//soma('a','b');  // typescript já indica os erros de tipagem no código
-
-
-// types
-
-
-// interfaces
-
-/*
-interface IAnimal {
-    nome: string;
-    tipo: 'terrestre' | 'aquatico';
-    executarRugido(alturaEmDecibeis: Number): void;
-}
-*/
-
-interface IAnimal {
-    nome: string;
-    tipo: 'terrestre' | 'aquatico';
-    domestico: boolean
-}
-
-const animal: IAnimal = {  //  Ctrl + Space indica o que contem a interface
-    nome: 'Elefante',
-    tipo: 'terrestre',
-    domestico: false
-    //executarRugido: (alturaEmDecibeis) => (`${alturaEmDecibeis}dB`)
-}
-
-interface IFelino extends IAnimal {
-    visaoNoturna: Boolean;
-}
-
-// Como Usar o Type
-
-interface ICanino extends IAnimal {
-    porte: 'pequeno' | 'medio' | 'grande';
-}
-
-type IDomestico = IFelino | ICanino;  // type define junções e Merges entre as classes
-
-const animal2: IDomestico = {
-    nome: 'cachorro',
-    tipo: "terrestre",
-    domestico: true,
-    porte: "medio",
-}
+input.addEventListener('input', (event) => {
+    console.log('Digitei');
+    const i = event.currentTarget as HTMLInputElement;
+    console.log(i.value);
+});
