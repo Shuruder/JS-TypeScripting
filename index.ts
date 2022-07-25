@@ -1,10 +1,9 @@
-// tag input
+// Generic Types
 
-// const input: HTMLInputElement = document.getElementById('input'); // não vai funcionar pois o elemento ainda não está definido
-const input = document.getElementById('input') as HTMLInputElement; // se fosse uma div era DivElement etc
+function adicionaApendiceALista<NaoSei>(array: any[], valor: NaoSei ) { // por padrão é colocado a letra T no lugar do NaoSei
+    return array.map(() => valor);
+}
 
-input.addEventListener('input', (event) => {
-    console.log('Digitei');
-    const i = event.currentTarget as HTMLInputElement;
-    console.log(i.value);
-});
+adicionaApendiceALista([1, 2, 3], 1); // COmo tipar esses dados? olhe na função
+
+// Então basicamente quando você não sabe o que vai receber você pode criar um receptor generico
